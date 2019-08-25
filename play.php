@@ -1,9 +1,18 @@
 <?php
+session_start();
 include 'inc/Game.php';
 include 'inc/Phrase.php';
 
-$phrase = new Phrase();
+if (isset($_POST['key'])) {
+    $_SESSION['selected'] = filter_input(INPUT_POST, 'key', FILTER_SANITIZE_STRING);
+}
+//var_dump($_SESSION);
+
+$_SESSION['phrase'] = 'start small';
+$phrase = new Phrase($_SESSION['phrase'], $_SESSION['selected']);
 $game = new Game($phrase);
+//var_dump($phrase->checkLetter('c'));
+//var_dump($game);
 
 //var_dump($phrase);
 //var_dump($game);
@@ -26,7 +35,7 @@ $game = new Game($phrase);
       <?php echo $phrase->addPhraseToDisplay();
       echo $game->displayKeyboard();
       echo $game->displayScore();
-      var_dump($_POST);
+      //var_dump($_POST);
       ?>
     </div>
 

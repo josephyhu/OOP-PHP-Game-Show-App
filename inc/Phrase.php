@@ -32,4 +32,13 @@ class Phrase
         $output .= "</div>";
         return $output;
     }
+
+    public function checkLetter($letter)
+    {
+        if (in_array($letter, array_unique(str_split(str_replace(' ', '', strtolower($this->currentPhrase)))))) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
