@@ -11,6 +11,7 @@ class Game
 
     public function displayKeyboard()
     {
+        $this->key();
         $output = "";
         $output .= "<form method='post' action='play.php'>";
         $output .= "<div id='qwerty' class='section'>";
@@ -59,7 +60,7 @@ class Game
         if (!in_array($letter, $selected)) {
             return "<button name='key' value='" . $letter . "' class='key'>" . $letter . "</button>";
         } else {
-            if ($letter->checkLetter()) {
+            if (checkLetter($letter)) {
                 return "<button name='key' value='" . $letter . "' class='key correct' disabled>" . $letter . "</button>";
             } else {
                 return "<button name='key' value='" . $letter . "' class='key incorrect' disabled>" . $letter . "</button>";
