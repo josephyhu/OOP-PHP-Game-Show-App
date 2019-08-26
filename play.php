@@ -1,16 +1,25 @@
 <?php
 session_start();
+if (isset($_POST['start'])) {
+    unset($_SESSION['selected']);
+    unset($_SESSION['phrase']);
+}
+
 include 'inc/Game.php';
 include 'inc/Phrase.php';
 
+if (!isset($_SESSION['selected'])) {
+    $_SESSION['selected'] = array();
+}
 if (isset($_POST['key'])) {
-    $_SESSION['selected'] = filter_input(INPUT_POST, 'key', FILTER_SANITIZE_STRING);
+    array_push($_SESSION['selected'], $_POST['key']);
 }
 //var_dump($_SESSION);
 
 $_SESSION['phrase'] = 'start small';
 $phrase = new Phrase($_SESSION['phrase'], $_SESSION['selected']);
 $game = new Game($phrase);
+//var_dump($game->phrase->selected);
 //var_dump($phrase->checkLetter('c'));
 //var_dump($game);
 

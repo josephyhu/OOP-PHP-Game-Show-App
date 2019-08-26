@@ -25,7 +25,11 @@ class Phrase
             if ($character == " ") {
                 $output .= "<li class='space'>" . $character . "</li>";
             } else {
-                $output .= "<li class='hide letter'>" . $character . "</li>";
+                if (in_array($character, $this->selected)) {
+                    $output .= "<li class='show letter'>" . $character . "</li>";
+                } else {
+                    $output .= "<li class='hide letter'>" . $character . "</li>";
+                }
             }
         }
         $output .= "</ul>";
