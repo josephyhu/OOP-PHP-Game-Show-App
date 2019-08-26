@@ -2,7 +2,7 @@
 class Phrase
 {
     private $currentPhrase;
-    private $selected = array();
+    public $selected = array();
 
     public function __construct($phrase = null, $selected = null)
     {
