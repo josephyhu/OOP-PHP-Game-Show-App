@@ -56,7 +56,7 @@ class Game
 
     public function key($letter)
     {
-        if (!in_array($letter, $selected)) {
+        if (!in_array($letter, $this->phrase->selected)) {
             return "<button name='key' value='" . $letter . "' class='key'>" . $letter . "</button>";
         } else {
             if ($this->phrase->checkLetter($letter)) {
