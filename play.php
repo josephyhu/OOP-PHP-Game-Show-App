@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_POST['start'])) {
+if ($_POST['start']) {
     unset($_SESSION['selected']);
     unset($_SESSION['phrase']);
 }
@@ -16,9 +16,11 @@ if (isset($_POST['key'])) {
 }
 //var_dump($_SESSION);
 
-$_SESSION['phrase'] = 'start small';
 $phrase = new Phrase($_SESSION['phrase'], $_SESSION['selected']);
+$_SESSION['phrase'] = $phrase->currentPhrase;
 $game = new Game($phrase);
+//var_dump($phrase->getLetterArray());
+echo $phrase->numberLost();
 //var_dump($game->phrase->selected);
 //var_dump($phrase->checkLetter('c'));
 //var_dump($game);

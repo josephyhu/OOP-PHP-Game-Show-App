@@ -72,7 +72,7 @@ class Game
         $output = "";
         $output .= "<div id='scoreboard' class='section'>";
         $output .= "<ol>";
-        for ($i = 1; $i <= $this->lives; $i++) {
+        for ($i == 1; $i < $this->lives; $i++) {
             $output .= "<li class='tries'><img src='images/liveHeart.png' height='35px' width='30px'></li>";
         }
         $output .= "</ol>";
