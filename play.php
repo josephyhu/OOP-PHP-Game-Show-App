@@ -14,19 +14,10 @@ if (!isset($_SESSION['selected'])) {
 if (isset($_POST['key'])) {
     array_push($_SESSION['selected'], $_POST['key']);
 }
-//var_dump($_SESSION);
 
 $phrase = new Phrase($_SESSION['phrase'], $_SESSION['selected']);
 $_SESSION['phrase'] = $phrase->currentPhrase;
 $game = new Game($phrase);
-//var_dump($phrase->getLetterArray());
-echo $phrase->numberLost();
-//var_dump($game->phrase->selected);
-//var_dump($phrase->checkLetter('c'));
-//var_dump($game);
-
-//var_dump($phrase);
-//var_dump($game);
 ?>
 
 <!DOCTYPE html>
@@ -41,12 +32,13 @@ echo $phrase->numberLost();
   </head>
 
   <body>
-    <div class="main-container">
+    <?php $game->gameOver(); ?>
       <h2 class="header">Phrase Hunter</h2>
-      <?php echo $phrase->addPhraseToDisplay();
-      echo $game->displayKeyboard();
-      echo $game->displayScore();
-      //var_dump($_POST);
+      <?php if ($game->checkForLose() == false && $game->checkForWin() == false) {
+                echo $phrase->addPhraseToDisplay();
+                echo $game->displayKeyboard();
+                echo $game->displayScore();
+            }
       ?>
     </div>
 

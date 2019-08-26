@@ -72,12 +72,84 @@ class Game
         $output = "";
         $output .= "<div id='scoreboard' class='section'>";
         $output .= "<ol>";
-        for ($i == 1; $i < $this->lives; $i++) {
-            $output .= "<li class='tries'><img src='images/liveHeart.png' height='35px' width='30px'></li>";
+        switch ($this->phrase->numberLost()) {
+            case 0:
+                for ($i == 1; $i < $this->lives; $i++) {
+                    $output .= "<li class='tries'><img src='images/liveHeart.png' height='35px' width='30px'></li>";
+                }
+                break;
+            case 1:
+                for ($i == 1; $i < $this->lives - 1; $i++) {
+                    $output .= "<li class='tries'><img src='images/liveHeart.png' height='35px' width='30px'></li>";
+                }
+                $output .= "<li class='tries'><img src='images/lostHeart.png' height='35px' width='30px'></li>";
+                break;
+            case 2:
+                for ($i == 1; $i < $this->lives - 2; $i++) {
+                    $output .= "<li class='tries'><img src='images/liveHeart.png' height='35px' width='30px'></li>";
+                }
+                $output .= "<li class='tries'><img src='images/lostHeart.png' height='35px' width='30px'></li>";
+                $output .= "<li class='tries'><img src='images/lostHeart.png' height='35px' width='30px'></li>";
+                break;
+            case 3:
+                $output .= "<li class='tries'><img src='images/liveHeart.png' height='35px' width='30px'></li>";
+                $output .= "<li class='tries'><img src='images/liveHeart.png' height='35px' width='30px'></li>";
+                for ($i == 1; $i < $this->lives - 2; $i++) {
+                    $output .= "<li class='tries'><img src='images/lostHeart.png' height='35px' width='30px'></li>";
+                }
+                break;
+            case 4:
+                $output .= "<li class='tries'><img src='images/liveHeart.png' height='35px' width='30px'></li>";
+                for ($i == 1; $i < $this->lives - 1; $i++) {
+                    $output .= "<li class='tries'><img src='images/lostHeart.png' height='35px' width='30px'></li>";
+                }
+                break;
+            case 5:
+                for ($i == 1; $i < $this->lives; $i++) {
+                    $output .= "<li class='tries'><img src='images/lostHeart.png' height='35px' width='30px'></li>";
+                }
+                break;
         }
         $output .= "</ol>";
         $output .= "</div>";
 
         return $output;
+    }
+
+    public function checkForLose()
+    {
+        if ($this->phrase->numberLost() >= $this->lives) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function checkForWin()
+    {
+        if (count(array_intersect($this->phrase->selected, $this->phrase->getLetterArray())) == count($this->phrase->getLetterArray())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function gameOver()
+    {
+        if ($this->checkForLose() == true) {
+            echo "<div id='overlay' class='main-container lose'>";
+            echo "<h1 id='game-over-message'>The phrase was: '" . $this->phrase->currentPhrase . "'. Better luck next time!</h1>";
+            echo "<form action='play.php' method='post'>";
+            echo "<input name='start' id='btn__reset' type='submit' value='Restart Game' />";
+            echo "</form>";
+        } elseif ($this->checkForWin() == true) {
+            echo "<div id='overlay' class='main-container win'>";
+            echo "<h1 id='game-over-message'>Congratulations on guessing: '" . $this->phrase->currentPhrase . "'</h1>";
+            echo "<form action='play.php' method='post'>";
+            echo "<input name='start' id='btn__reset' type='submit' value='Restart Game' />";
+            echo "</form>";
+        } else {
+            echo "<div class='main-container'>";
+        }
     }
 }

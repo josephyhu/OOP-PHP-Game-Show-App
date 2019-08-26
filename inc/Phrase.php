@@ -59,7 +59,8 @@ class Phrase
         }
     }
 
-    public function numberLost() {
+    public function numberLost()
+    {
         return count(array_diff($this->selected, $this->getLetterArray()));
     }
 }
