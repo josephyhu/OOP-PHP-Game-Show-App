@@ -59,7 +59,7 @@ class Game
         if (!in_array($letter, $selected)) {
             return "<button name='key' value='" . $letter . "' class='key'>" . $letter . "</button>";
         } else {
-            if (checkLetter($letter)) {
+            if ($this->phrase->checkLetter($letter)) {
                 return "<button name='key' value='" . $letter . "' class='key correct' disabled>" . $letter . "</button>";
             } else {
                 return "<button name='key' value='" . $letter . "' class='key incorrect' disabled>" . $letter . "</button>";
