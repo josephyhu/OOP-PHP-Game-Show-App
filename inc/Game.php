@@ -57,12 +57,12 @@ class Game
     public function key($letter)
     {
         if (!in_array($letter, $this->phrase->selected)) {
-            return "<input type='submit' name='key' value='" . $letter . "' class='key'>";
+            return "<input id='btn' type='submit' name='key' value='" . $letter . "' class='key'>";
         } else {
             if ($this->phrase->checkLetter($letter)) {
-                return "<input type='submit' name='key' value='" . $letter . "' class='key correct' disabled>";
+                return "<input id='btn' type='submit' name='key' value='" . $letter . "' class='key correct' disabled>";
             } else {
-                return "<input type='submit' name='key' value='" . $letter . "' class='key incorrect' disabled>";
+                return "<input id='btn' type='submit' name='key' value='" . $letter . "' class='key incorrect' disabled>";
             }
         }
     }
@@ -153,3 +153,4 @@ class Game
         }
     }
 }
+echo "<script src='../js/script.js'></script>";
