@@ -57,7 +57,7 @@ class Game
     public function key($letter)
     {
         if (!in_array($letter, $this->phrase->selected)) {
-            return "<input id='" . $letter . "' onkeydown='myFunction(event)' type='submit' name='key' value='" . $letter . "' class='key'>";
+            return "<input id='" . $letter . "' type='submit' name='key' value='" . $letter . "' class='key'>";
         } else {
             if ($this->phrase->checkLetter($letter)) {
                 return "<input id='" . $letter . "' type='submit' name='key' value='" . $letter . "' class='key correct' disabled>";
