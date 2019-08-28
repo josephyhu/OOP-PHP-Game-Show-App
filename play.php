@@ -31,7 +31,7 @@ $game = new Game($phrase);
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   </head>
 
-  <body>
+  <body onkeydown='myFunction(event)'>
     <?php $game->gameOver(); ?>
       <h2 class="header">Phrase Hunter</h2>
       <?php if ($game->checkForLose() == false && $game->checkForWin() == false) {
@@ -41,7 +41,6 @@ $game = new Game($phrase);
             }
       ?>
     </div>
-        <input type='submit' onkeydown='myFunction(event)'>
     <script>
     function myFunction(event) {
     var x = event.key;
