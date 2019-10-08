@@ -61,9 +61,11 @@ button, input[type=submit] {
 }
 input[type=submit].incorrect {
   background-color: var(--color-lose);
+  color: #FFFFFF;
 }
 input[type=submit].correct {
   background-color: var(--color-win);
+  color: #FFFFFF;
 }
 
 #btn__reset {
@@ -136,18 +138,6 @@ input[type=submit].correct {
 .keyrow {
   display: flex;
   justify-content: center;
-}
-
-.chosen {
-  background: #3a3f58;
-  border-radius: 5px;
-  font-size: var(--font-size-medium);
-  color: #FFFFFF;
-}
-
-.wrong {
-  background: #f7a964;
-  color: #FFFFFF;
 }
 
 .btn__reset {
