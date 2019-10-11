@@ -138,13 +138,13 @@ class Game
     {
         if ($this->checkForLose() == true) {
             echo "<div id='overlay' class='main-container lose'>";
-            echo "<h1 id='game-over-message'>The phrase was: '" . $this->phrase->currentPhrase . "'. Better luck next time!</h1>";
+            echo "<h1>The phrase was: '" . $this->phrase->currentPhrase . "'. Better luck next time!</h1>";
             echo "<form action='play.php' method='post'>";
             echo "<input name='start' id='btn__reset' type='submit' value='Restart Game' />";
             echo "</form>";
         } elseif ($this->checkForWin() == true) {
             echo "<div id='overlay' class='main-container win'>";
-            echo "<h1 id='game-over-message'>Congratulations on guessing: '" . $this->phrase->currentPhrase . "'</h1>";
+            echo "<h1>Congratulations on guessing: '" . $this->phrase->currentPhrase . "'</h1>";
             echo "<form action='play.php' method='post'>";
             echo "<input name='start' id='btn__reset' type='submit' value='Restart Game' />";
             echo "</form>";
