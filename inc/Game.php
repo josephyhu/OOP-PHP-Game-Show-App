@@ -149,7 +149,7 @@ class Game
             echo "<input name='start' id='btn__reset' type='submit' value='Restart Game' />";
             echo "</form>";
         } else {
-            echo "<div class='main-container'>";
+            echo "<div class='main-container' id='overlay'>";
         }
     }
 }
