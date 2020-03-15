@@ -74,18 +74,18 @@ class Game
         $output .= "<ol>";
         switch ($this->phrase->numberLost()) {
             case 0:
-                for ($i = 1; $i < $this->lives; $i++) {
+                for ($i = 1; $i <= $this->lives; $i++) {
                     $output .= "<li class='tries'><img src='images/liveHeart.png' height='35px' width='30px'></li>";
                 }
                 break;
             case 1:
-                for ($i = 1; $i < $this->lives - 1; $i++) {
+                for ($i = 1; $i <= $this->lives - 1; $i++) {
                     $output .= "<li class='tries'><img src='images/liveHeart.png' height='35px' width='30px'></li>";
                 }
                 $output .= "<li class='tries'><img src='images/lostHeart.png' height='35px' width='30px'></li>";
                 break;
             case 2:
-                for ($i = 1; $i < $this->lives - 2; $i++) {
+                for ($i = 1; $i <= $this->lives - 2; $i++) {
                     $output .= "<li class='tries'><img src='images/liveHeart.png' height='35px' width='30px'></li>";
                 }
                 $output .= "<li class='tries'><img src='images/lostHeart.png' height='35px' width='30px'></li>";
@@ -94,18 +94,18 @@ class Game
             case 3:
                 $output .= "<li class='tries'><img src='images/liveHeart.png' height='35px' width='30px'></li>";
                 $output .= "<li class='tries'><img src='images/liveHeart.png' height='35px' width='30px'></li>";
-                for ($i = 1; $i < $this->lives - 2; $i++) {
+                for ($i = 1; $i <= $this->lives - 2; $i++) {
                     $output .= "<li class='tries'><img src='images/lostHeart.png' height='35px' width='30px'></li>";
                 }
                 break;
             case 4:
                 $output .= "<li class='tries'><img src='images/liveHeart.png' height='35px' width='30px'></li>";
-                for ($i = 1; $i < $this->lives - 1; $i++) {
+                for ($i = 1; $i <= $this->lives - 1; $i++) {
                     $output .= "<li class='tries'><img src='images/lostHeart.png' height='35px' width='30px'></li>";
                 }
                 break;
             case 5:
-                for ($i = 1; $i < $this->lives; $i++) {
+                for ($i = 1; $i <= $this->lives; $i++) {
                     $output .= "<li class='tries'><img src='images/lostHeart.png' height='35px' width='30px'></li>";
                 }
                 break;
