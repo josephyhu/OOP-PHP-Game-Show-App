@@ -1,1 +1,1 @@
-document.addEventListener('keydown', (e) => document.getElementById(`${e.key}`).click());
+document.addEventListener('keydown', (e) => document.getElementById(`${e.key.toLowerCase()}`).click());
