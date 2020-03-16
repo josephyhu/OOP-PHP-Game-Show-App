@@ -31,7 +31,7 @@ $game = new Game($phrase);
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   </head>
 
-  <body onkeydown='myFunction(event)'>
+  <body>
     <?php $game->gameOver(); ?>
       <h2 class="header">Phrase Hunter</h2>
       <?php if ($game->checkForLose() == false && $game->checkForWin() == false) {
